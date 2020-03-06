@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="dvp_tx_rx_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="dvp_tx_rx_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="384355100000fs"></ZoomStartTime>
+      <ZoomEndTime time="459955100001fs"></ZoomEndTime>
+      <Cursor1Time time="416205000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="204"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject type="group" fp_name="group36">
+      <obj_property name="label">TOP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/arm_pclk">
+         <obj_property name="ElementShortName">arm_pclk</obj_property>
+         <obj_property name="ObjectShortName">arm_pclk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/aresetn">
+         <obj_property name="ElementShortName">aresetn</obj_property>
+         <obj_property name="ObjectShortName">aresetn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/frame_en">
+         <obj_property name="ElementShortName">frame_en</obj_property>
+         <obj_property name="ObjectShortName">frame_en</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/data_pixel">
+         <obj_property name="ElementShortName">data_pixel[11:0]</obj_property>
+         <obj_property name="ObjectShortName">data_pixel[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/video_h">
+         <obj_property name="ElementShortName">video_h[31:0]</obj_property>
+         <obj_property name="ObjectShortName">video_h[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/video_v">
+         <obj_property name="ElementShortName">video_v[31:0]</obj_property>
+         <obj_property name="ObjectShortName">video_v[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/dvp_vsync">
+         <obj_property name="ElementShortName">dvp_vsync</obj_property>
+         <obj_property name="ObjectShortName">dvp_vsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/dvp_hsync">
+         <obj_property name="ElementShortName">dvp_hsync</obj_property>
+         <obj_property name="ObjectShortName">dvp_hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/dvp_pclk">
+         <obj_property name="ElementShortName">dvp_pclk</obj_property>
+         <obj_property name="ObjectShortName">dvp_pclk</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/dvp_data">
+         <obj_property name="ElementShortName">dvp_data[11:0]</obj_property>
+         <obj_property name="ObjectShortName">dvp_data[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/rx_clk">
+         <obj_property name="ElementShortName">rx_clk</obj_property>
+         <obj_property name="ObjectShortName">rx_clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/vga_hsync">
+         <obj_property name="ElementShortName">vga_hsync</obj_property>
+         <obj_property name="ObjectShortName">vga_hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/vga_vsync">
+         <obj_property name="ElementShortName">vga_vsync</obj_property>
+         <obj_property name="ObjectShortName">vga_vsync</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/vga_rgb">
+         <obj_property name="ElementShortName">vga_rgb[11:0]</obj_property>
+         <obj_property name="ObjectShortName">vga_rgb[11:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group54">
+      <obj_property name="label">TX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/pclk">
+         <obj_property name="ElementShortName">pclk</obj_property>
+         <obj_property name="ObjectShortName">pclk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/aresetn">
+         <obj_property name="ElementShortName">aresetn</obj_property>
+         <obj_property name="ObjectShortName">aresetn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/frame_en">
+         <obj_property name="ElementShortName">frame_en</obj_property>
+         <obj_property name="ObjectShortName">frame_en</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/data_pixel">
+         <obj_property name="ElementShortName">data_pixel[11:0]</obj_property>
+         <obj_property name="ObjectShortName">data_pixel[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/video_h">
+         <obj_property name="ElementShortName">video_h[31:0]</obj_property>
+         <obj_property name="ObjectShortName">video_h[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/video_v">
+         <obj_property name="ElementShortName">video_v[31:0]</obj_property>
+         <obj_property name="ObjectShortName">video_v[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/vsync">
+         <obj_property name="ElementShortName">vsync</obj_property>
+         <obj_property name="ObjectShortName">vsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/hsync">
+         <obj_property name="ElementShortName">hsync</obj_property>
+         <obj_property name="ObjectShortName">hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/pixel_clk">
+         <obj_property name="ElementShortName">pixel_clk</obj_property>
+         <obj_property name="ObjectShortName">pixel_clk</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/data_bus">
+         <obj_property name="ElementShortName">data_bus[11:0]</obj_property>
+         <obj_property name="ObjectShortName">data_bus[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/h_count">
+         <obj_property name="ElementShortName">h_count[31:0]</obj_property>
+         <obj_property name="ObjectShortName">h_count[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_controller/v_count">
+         <obj_property name="ElementShortName">v_count[31:0]</obj_property>
+         <obj_property name="ObjectShortName">v_count[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group122">
+      <obj_property name="label">RX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/reset">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/sw_test_mode">
+         <obj_property name="ElementShortName">sw_test_mode</obj_property>
+         <obj_property name="ObjectShortName">sw_test_mode</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/dvp_pclk">
+         <obj_property name="ElementShortName">dvp_pclk</obj_property>
+         <obj_property name="ObjectShortName">dvp_pclk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/dvp_href">
+         <obj_property name="ElementShortName">dvp_href</obj_property>
+         <obj_property name="ObjectShortName">dvp_href</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/dvp_vsync">
+         <obj_property name="ElementShortName">dvp_vsync</obj_property>
+         <obj_property name="ObjectShortName">dvp_vsync</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/dvp_din">
+         <obj_property name="ElementShortName">dvp_din[11:0]</obj_property>
+         <obj_property name="ObjectShortName">dvp_din[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/sw">
+         <obj_property name="ElementShortName">sw[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sw[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/hsync">
+         <obj_property name="ElementShortName">hsync</obj_property>
+         <obj_property name="ObjectShortName">hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/vsync">
+         <obj_property name="ElementShortName">vsync</obj_property>
+         <obj_property name="ObjectShortName">vsync</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/rgb">
+         <obj_property name="ElementShortName">rgb[11:0]</obj_property>
+         <obj_property name="ObjectShortName">rgb[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/addr">
+         <obj_property name="ElementShortName">addr[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[16:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/cap_buf_data">
+         <obj_property name="ElementShortName">cap_buf_data[11:0]</obj_property>
+         <obj_property name="ObjectShortName">cap_buf_data[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/we">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/raddr">
+         <obj_property name="ElementShortName">raddr[16:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/rgb_reg">
+         <obj_property name="ElementShortName">rgb_reg[11:0]</obj_property>
+         <obj_property name="ObjectShortName">rgb_reg[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/video_on">
+         <obj_property name="ElementShortName">video_on</obj_property>
+         <obj_property name="ObjectShortName">video_on</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/x_frame">
+         <obj_property name="ElementShortName">x_frame[16:0]</obj_property>
+         <obj_property name="ObjectShortName">x_frame[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/y_frame">
+         <obj_property name="ElementShortName">y_frame[16:0]</obj_property>
+         <obj_property name="ObjectShortName">y_frame[16:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/enb">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/valid">
+         <obj_property name="ElementShortName">valid</obj_property>
+         <obj_property name="ObjectShortName">valid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/buf_vga_data">
+         <obj_property name="ElementShortName">buf_vga_data[11:0]</obj_property>
+         <obj_property name="ObjectShortName">buf_vga_data[11:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group123">
+      <obj_property name="label">CAM CAP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/pclk">
+         <obj_property name="ElementShortName">pclk</obj_property>
+         <obj_property name="ObjectShortName">pclk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/aresetn">
+         <obj_property name="ElementShortName">aresetn</obj_property>
+         <obj_property name="ObjectShortName">aresetn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/vsync">
+         <obj_property name="ElementShortName">vsync</obj_property>
+         <obj_property name="ObjectShortName">vsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/href">
+         <obj_property name="ElementShortName">href</obj_property>
+         <obj_property name="ObjectShortName">href</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/din">
+         <obj_property name="ElementShortName">din[11:0]</obj_property>
+         <obj_property name="ObjectShortName">din[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/addr">
+         <obj_property name="ElementShortName">addr[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/dout">
+         <obj_property name="ElementShortName">dout[11:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/we">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_cam_capture/addr_reg">
+         <obj_property name="ElementShortName">addr_reg[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_reg[16:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group124">
+      <obj_property name="label">BUFFER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/clka">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/wea">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/addra">
+         <obj_property name="ElementShortName">addra[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/dina">
+         <obj_property name="ElementShortName">dina[11:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/clkb">
+         <obj_property name="ElementShortName">clkb</obj_property>
+         <obj_property name="ObjectShortName">clkb</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/enb">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/addrb">
+         <obj_property name="ElementShortName">addrb[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/frame_buffer/doutb">
+         <obj_property name="ElementShortName">doutb[11:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[11:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group125">
+      <obj_property name="label">VGA SYNC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/reset">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/hsync">
+         <obj_property name="ElementShortName">hsync</obj_property>
+         <obj_property name="ObjectShortName">hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/vsync">
+         <obj_property name="ElementShortName">vsync</obj_property>
+         <obj_property name="ObjectShortName">vsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/video_on">
+         <obj_property name="ElementShortName">video_on</obj_property>
+         <obj_property name="ObjectShortName">video_on</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/p_tick">
+         <obj_property name="ElementShortName">p_tick</obj_property>
+         <obj_property name="ObjectShortName">p_tick</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/x">
+         <obj_property name="ElementShortName">x[16:0]</obj_property>
+         <obj_property name="ObjectShortName">x[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/y">
+         <obj_property name="ElementShortName">y[16:0]</obj_property>
+         <obj_property name="ObjectShortName">y[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/pixel_reg">
+         <obj_property name="ElementShortName">pixel_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pixel_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/pixel_next">
+         <obj_property name="ElementShortName">pixel_next[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pixel_next[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/pixel_tick">
+         <obj_property name="ElementShortName">pixel_tick</obj_property>
+         <obj_property name="ObjectShortName">pixel_tick</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/h_count_reg">
+         <obj_property name="ElementShortName">h_count_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">h_count_reg[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/h_count_next">
+         <obj_property name="ElementShortName">h_count_next[9:0]</obj_property>
+         <obj_property name="ObjectShortName">h_count_next[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/v_count_reg">
+         <obj_property name="ElementShortName">v_count_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">v_count_reg[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/v_count_next">
+         <obj_property name="ElementShortName">v_count_next[9:0]</obj_property>
+         <obj_property name="ObjectShortName">v_count_next[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/vsync_reg">
+         <obj_property name="ElementShortName">vsync_reg</obj_property>
+         <obj_property name="ObjectShortName">vsync_reg</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/hsync_reg">
+         <obj_property name="ElementShortName">hsync_reg</obj_property>
+         <obj_property name="ObjectShortName">hsync_reg</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/vsync_next">
+         <obj_property name="ElementShortName">vsync_next</obj_property>
+         <obj_property name="ObjectShortName">vsync_next</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_rx_top/u_vga_sync/hsync_next">
+         <obj_property name="ElementShortName">hsync_next</obj_property>
+         <obj_property name="ObjectShortName">hsync_next</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
