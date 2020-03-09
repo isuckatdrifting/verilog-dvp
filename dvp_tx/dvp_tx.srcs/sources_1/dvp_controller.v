@@ -17,11 +17,15 @@ module dvp_controller #(parameter DW = 16)(
   output wire          vsync,
   output wire          hsync,
   output wire          pixel_clk,
-  output wire [DW-1:0] data_bus
+  output wire [DW-1:0] data_bus,
+  output wire          hline_prefetch
 );
 
 reg [31:0] h_count, v_count;
+localparam SRAM_RD_DELAY = 1;
 
+assign hline_prefetch = (h_count >= h_pad_left + video_h + h_pad_right - 1 - SRAM_RD_DELAY) // - 1 for the data frontend to trigger the sram cs
+                          && (v_count >= v_pad_up - 1 && v_count < v_pad_up + video_v - 1) ? 1 : 0; //promopt prefetch at the previous line end
 assign hsync = (h_count >= h_pad_left && h_count < h_pad_left + video_h) && (v_count >= v_pad_up && v_count < v_pad_up + video_v) ? 1 : 0;
 assign vsync = (v_count < vsync_width) ? 1 : 0;
 assign pixel_clk = frame_en ? pclk : 0; // pixel clk is active no matter hsync is high or low

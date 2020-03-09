@@ -11,12 +11,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="384355100000fs"></ZoomStartTime>
-      <ZoomEndTime time="459955100001fs"></ZoomEndTime>
-      <Cursor1Time time="416205000000fs"></Cursor1Time>
+      <ZoomStartTime time="145414500000fs"></ZoomStartTime>
+      <ZoomEndTime time="146042500001fs"></ZoomEndTime>
+      <Cursor1Time time="145560000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="204"></NameColumnWidth>
+      <NameColumnWidth column_width="200"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="6" />
@@ -116,6 +116,14 @@
       <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/hsync">
          <obj_property name="ElementShortName">hsync</obj_property>
          <obj_property name="ObjectShortName">hsync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/hline_prefetch">
+         <obj_property name="ElementShortName">hline_prefetch</obj_property>
+         <obj_property name="ObjectShortName">hline_prefetch</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dvp_tx_rx_tb/sram_ren">
+         <obj_property name="ElementShortName">sram_ren</obj_property>
+         <obj_property name="ObjectShortName">sram_ren</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/dvp_tx_rx_tb/u_dvp_controller/pixel_clk">
          <obj_property name="ElementShortName">pixel_clk</obj_property>

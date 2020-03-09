@@ -25,7 +25,21 @@ initial begin
 end
 //FIXME: config clock and data clock are the same for now.
 always #(5) arm_pclk = ~arm_pclk; 
-always @(posedge arm_pclk) data_pixel = $random;
+
+wire hline_prefetch; reg sram_ren = 0; reg [15:0] sram_h_count = 0;
+always @(posedge arm_pclk) begin
+  if(hline_prefetch) begin
+    sram_ren <= 1;
+  end
+  if(sram_ren) begin
+    data_pixel = $random;
+    sram_h_count <= sram_h_count + 1;
+  end
+  if(sram_h_count == video_h - 1) begin
+    sram_ren <= 0;
+    sram_h_count <= 0;
+  end
+end
 
 dvp_controller #(.DW(12))
 u_dvp_controller(
@@ -43,7 +57,8 @@ u_dvp_controller(
   .vsync      (dvp_vsync),
   .hsync      (dvp_hsync),
   .pixel_clk  (dvp_pclk),
-  .data_bus   (dvp_data)
+  .data_bus   (dvp_data),
+  .hline_prefetch(hline_prefetch)
 );
 
 //-----DVP RX-----
