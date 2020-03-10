@@ -9,16 +9,19 @@ module dvp_tx(
 );
 
 //-----Dummy Configurator------
-wire [31:0] h_pad_left, h_pad_right, vsync_width, v_pad_up, v_pad_down, video_h, video_v;
+wire [31:0] h_pad_left, h_pad_right, vsync_width, v_pad_up, v_pad_down, video_h, video_v, sample;
+wire orientation;
 // in px
 assign video_h = 320; 
 assign h_pad_left = 0; 
 assign h_pad_right = 1728; 
 // in lines
 assign video_v = 240; 
-assign vsync_width = 1; 
+assign sync_width = 1; 
 assign v_pad_up = 7; 
 assign v_pad_down = 16; //2048px, 14336px, 32768px
+assign orientation = 0;
+assign sample = 1;
 
 reg frame_en;
 reg [11:0] data_pixel;
@@ -79,14 +82,17 @@ u_dvp_controller(
   .h_pad_right(h_pad_right),
   .v_pad_up   (v_pad_up),
   .v_pad_down (v_pad_down),
-  .vsync_width(vsync_width),
+  .sync_width (sync_width),
   .video_h    (video_h),
   .video_v    (video_v),
+  .orientation(orientation),
+  .sample     (sample),
   .vsync      (dvp_vsync),
   .hsync      (dvp_hsync),
   .pixel_clk  (dvp_pclk),
   .data_bus   (dvp_data),
-  .hline_prefetch (),
+  .stream_prefetch (),
+  .s_count    (s_count),
   .h_count    (h_count),
   .v_count    (v_count)
 );

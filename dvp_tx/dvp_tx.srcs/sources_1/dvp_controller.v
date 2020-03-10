@@ -11,42 +11,75 @@ module dvp_controller #(parameter DW = 16)(
   input  wire   [31:0] h_pad_right,
   input  wire   [31:0] v_pad_up,
   input  wire   [31:0] v_pad_down,
-  input  wire   [31:0] vsync_width,
+  input  wire   [31:0] sync_width, // frame_sync_width
   input  wire   [31:0] video_h,
   input  wire   [31:0] video_v,
+  input  wire          orientation, // 0 - normal by default, 1 - transposed frame (switch h/v, and indexing)
+  input  wire   [31:0] sample,
   output wire          vsync,
   output wire          hsync,
   output wire          pixel_clk,
   output wire [DW-1:0] data_bus,
-  output wire          hline_prefetch,
-  output  reg   [31:0] h_count,
-  output  reg   [31:0] v_count
+  output wire          stream_prefetch,
+  output wire   [31:0] s_count, // sample count
+  output wire   [31:0] h_count, // horizontal count
+  output wire   [31:0] v_count // vertical count
 );
 
 localparam SRAM_RD_DELAY = 1;
+reg [31:0] lv0_count, lv1_count, lv2_count;
+wire lv1_sync, lv2_sync;
+wire [31:0] lv1_pad_front, lv1_length, lv1_pad_end, lv2_pad_front, lv2_length, lv2_pad_end;
+//input assign
+assign lv1_pad_front  = orientation ? v_pad_up    : h_pad_left;
+assign lv1_length     = orientation ? video_v     : video_h;
+assign lv1_pad_end    = orientation ? v_pad_down  : h_pad_right;
+assign lv2_pad_front  = orientation ? h_pad_left  : v_pad_up;
+assign lv2_length     = orientation ? video_h     : video_v;
+assign lv2_pad_end    = orientation ? h_pad_right : v_pad_down;
 
-assign hline_prefetch = (h_count >= h_pad_left + video_h + h_pad_right - 1 - SRAM_RD_DELAY) // - 1 for the data frontend to trigger the sram cs
-                          && (v_count >= v_pad_up - 1 && v_count < v_pad_up + video_v - 1) ? 1 : 0; //promopt prefetch at the previous line end
-assign hsync = (h_count >= h_pad_left && h_count < h_pad_left + video_h) && (v_count >= v_pad_up && v_count < v_pad_up + video_v) ? 1 : 0;
-assign vsync = (v_count < vsync_width) ? 1 : 0;
+//internal assign
+assign stream_prefetch = (lv1_count >= lv1_pad_front + lv1_length + lv1_pad_end - 1 - SRAM_RD_DELAY) // - 1 for the data frontend to trigger the sram cs
+                          && (lv2_count >= lv2_pad_front - 1 && lv2_count < lv2_pad_front + lv2_length - 1) ? 1 : 0; //promopt prefetch at the previous line end
+assign lv1_sync = (lv1_count >= lv1_pad_front && lv1_count < lv1_pad_front + lv1_length) 
+                    && (lv2_count >= lv2_pad_front && lv2_count < lv2_pad_front + lv2_length) ? 1 : 0;
+assign lv2_sync = (lv2_count < sync_width) ? 1 : 0;
+
+//output assign
 assign pixel_clk = frame_en ? pclk : 0; // pixel clk is active no matter hsync is high or low
-assign data_bus = hsync ? data_pixel : 'h0; // FIXME: may need fifo before, rather than this transparent style
+assign data_bus = lv1_sync ? data_pixel : 'h0; // FIXME: may need fifo before, rather than this transparent style
+assign hsync = orientation ? lv2_sync : lv1_sync;
+assign vsync = orientation ? lv1_sync : lv2_sync;
+assign s_count = lv0_count;
+assign h_count = orientation ? lv2_count : lv1_count;
+assign v_count = orientation ? lv1_count : lv2_count;
 
 always @(posedge pclk or negedge aresetn) begin
   if(!aresetn) begin
-    h_count <= 0;
-    v_count <= 0;
+    lv0_count <= 0;
+    lv1_count <= 0;
+    lv2_count <= 0;
   end else begin
     if(frame_en) begin
-      h_count <= h_count + 1;
-      if(h_count == h_pad_left + video_h + h_pad_right - 1) begin
-        h_count <= 0;
-        if(v_count == vsync_width + v_pad_up + video_v + v_pad_down - 1) begin
-          v_count <= 0;
+      if(lv0_count == sample - 1) begin //stacked counter
+        lv0_count <= 0;
+        if(lv1_count == lv1_pad_front + lv1_length + lv1_pad_end - 1) begin
+          lv1_count <= 0;
+          if(lv2_count == lv2_pad_front + lv2_length + lv2_pad_end - 1) begin
+            lv2_count <= 0;
+          end else begin
+            lv2_count <= lv2_count + 1;
+          end
         end else begin
-          v_count <= v_count + 1;
+          lv1_count <= lv1_count + 1;
         end
+      end else begin
+        lv0_count <= lv0_count + 1;
       end
+    end else begin // Clean up the counters if not displaying or switching modes
+      lv0_count <= 0;
+      lv1_count <= 0;
+      lv2_count <= 0;
     end
   end
 end

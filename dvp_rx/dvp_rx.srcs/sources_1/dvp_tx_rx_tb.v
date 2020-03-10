@@ -5,7 +5,8 @@ module dvp_tx_rx_tb();
 //-----DVP TX-----
 reg arm_pclk, aresetn, frame_en;
 reg [11:0] data_pixel;
-reg [31:0] h_pad_left, h_pad_right, vsync_width, v_pad_up, v_pad_down, video_h, video_v;
+reg [31:0] h_pad_left, h_pad_right, sync_width, v_pad_up, v_pad_down, video_h, video_v, sample;
+reg orientation;
 wire dvp_vsync, dvp_hsync, dvp_pclk;
 wire [11:0] dvp_data;
 
@@ -21,7 +22,9 @@ initial begin
   // in px
   video_h = 320; h_pad_left = 0; h_pad_right = 1728; 
   // in lines
-  video_v = 240; vsync_width = 1; v_pad_up = 7; v_pad_down = 16; //2048px, 14336px, 32768px
+  video_v = 240; sync_width = 1; v_pad_up = 7; v_pad_down = 16; //2048px, 14336px, 32768px
+  sample = 1;
+  orientation = 0;
 end
 //FIXME: config clock and data clock are the same for now.
 always #(5) arm_pclk = ~arm_pclk; 
@@ -50,9 +53,9 @@ assign data_pixel_r = (bar_select == 4 || bar_select == 5 || bar_select == 6 || 
 assign data_pixel_g = (bar_select == 2 || bar_select == 3 || bar_select == 6 || bar_select == 7) ? 4'hf : 0;
 assign data_pixel_b = (bar_select == 1 || bar_select == 3 || bar_select == 5 || bar_select == 7) ? 4'hf : 0;
 
-wire hline_prefetch; reg sram_ren = 0; reg [15:0] sram_h_count = 0;
+wire stream_prefetch; reg sram_ren = 0; reg [15:0] sram_h_count = 0;
 always @(posedge arm_pclk) begin
-  if(hline_prefetch) begin
+  if(stream_prefetch) begin
     sram_ren <= 1;
   end
   if(sram_ren) begin
@@ -75,14 +78,17 @@ u_dvp_controller(
   .h_pad_right(h_pad_right),
   .v_pad_up   (v_pad_up),
   .v_pad_down (v_pad_down),
-  .vsync_width(vsync_width),
+  .sync_width (sync_width),
   .video_h    (video_h),
   .video_v    (video_v),
+  .orientation(orientation),
+  .sample     (sample),
   .vsync      (dvp_vsync),
   .hsync      (dvp_hsync),
   .pixel_clk  (dvp_pclk),
   .data_bus   (dvp_data),
-  .hline_prefetch(hline_prefetch),
+  .stream_prefetch(stream_prefetch),
+  .s_count    (s_count),
   .h_count    (h_count),
   .v_count    (v_count)
 );
