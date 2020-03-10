@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="145414500000fs"></ZoomStartTime>
-      <ZoomEndTime time="146042500001fs"></ZoomEndTime>
-      <Cursor1Time time="145560000000fs"></Cursor1Time>
+      <ZoomStartTime time="307569600000fs"></ZoomStartTime>
+      <ZoomEndTime time="433569600001fs"></ZoomEndTime>
+      <Cursor1Time time="416205000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="200"></NameColumnWidth>
+      <NameColumnWidth column_width="196"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="10" />
    <wvobject type="group" fp_name="group36">
       <obj_property name="label">TOP</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -80,6 +80,22 @@
          <obj_property name="ElementShortName">vga_rgb[11:0]</obj_property>
          <obj_property name="ObjectShortName">vga_rgb[11:0]</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/dvp_tx_rx_tb/bar_select">
+      <obj_property name="ElementShortName">bar_select[2:0]</obj_property>
+      <obj_property name="ObjectShortName">bar_select[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/dvp_tx_rx_tb/data_pixel_r">
+      <obj_property name="ElementShortName">data_pixel_r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_pixel_r[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/dvp_tx_rx_tb/data_pixel_g">
+      <obj_property name="ElementShortName">data_pixel_g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_pixel_g[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/dvp_tx_rx_tb/data_pixel_b">
+      <obj_property name="ElementShortName">data_pixel_b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_pixel_b[3:0]</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group54">
       <obj_property name="label">TX</obj_property>

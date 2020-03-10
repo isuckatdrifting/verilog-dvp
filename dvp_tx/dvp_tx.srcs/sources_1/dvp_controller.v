@@ -18,10 +18,11 @@ module dvp_controller #(parameter DW = 16)(
   output wire          hsync,
   output wire          pixel_clk,
   output wire [DW-1:0] data_bus,
-  output wire          hline_prefetch
+  output wire          hline_prefetch,
+  output  reg   [31:0] h_count,
+  output  reg   [31:0] v_count
 );
 
-reg [31:0] h_count, v_count;
 localparam SRAM_RD_DELAY = 1;
 
 assign hline_prefetch = (h_count >= h_pad_left + video_h + h_pad_right - 1 - SRAM_RD_DELAY) // - 1 for the data frontend to trigger the sram cs
