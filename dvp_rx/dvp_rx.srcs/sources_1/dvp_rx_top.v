@@ -1,7 +1,7 @@
 module dvp_rx_top(
 	input wire clk, reset,
 	//CAM
-	input wire dvp_pclk, dvp_href, dvp_vsync, //external pclk with freq constraint
+	input wire dvp_pclk, dvp_href, dvp_vsync, dvp_orientation, //external pclk with freq constraint
 	input wire [11:0] dvp_din,
 	//VGA
 	input wire [11:0] sw,
@@ -9,12 +9,6 @@ module dvp_rx_top(
 	output wire hsync, vsync,
 	output wire [11:0] rgb
 );
-/*
-BUFG BUFG_inst (
-      .O(dvp_pclk_buf), // 1-bit output: Clock output
-      .I(dvp_pclk)  // 1-bit input: Clock input
-   );*/
-// ------Cam controller i2c-----
 
 wire [16:0] addr;
 wire [11:0] cap_buf_data;
@@ -26,6 +20,7 @@ cam_capture u_cam_capture(
   .vsync    (dvp_vsync),
   .href     (dvp_href),
   .din      (dvp_din),
+  .orientation(dvp_orientation),
   .addr     (addr),
   .dout     (cap_buf_data),
   .we       (we)

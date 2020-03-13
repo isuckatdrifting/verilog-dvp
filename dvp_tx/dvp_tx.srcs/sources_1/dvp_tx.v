@@ -66,7 +66,7 @@ always@(posedge clk or negedge aresetn) begin
     end else begin
       frame_en <= 1; indicator[1] <= 1;
       //color bar generator
-      data_pixel <= {data_pixel_r, data_pixel_g, data_pixel_b};
+      data_pixel <= {data_pixel_r, data_pixel_g, data_pixel_b}; // FIXME: using ff would cause a 1-cycle glitch
     end
   end
 end

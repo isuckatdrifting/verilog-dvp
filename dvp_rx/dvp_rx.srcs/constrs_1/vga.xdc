@@ -45,8 +45,8 @@ set_property PACKAGE_PIN L2 [get_ports {dvp_href}]
 set_property PACKAGE_PIN J2 [get_ports {dvp_vsync}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {dvp_vsync}]
 ##Sch name = JA4
-#set_property PACKAGE_PIN G2 [get_ports {JA[3]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {JA[3]}]
+set_property PACKAGE_PIN G2 [get_ports {dvp_orientation}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {dvp_orientation}]
 ##Sch name = JA7
 set_property PACKAGE_PIN H1 [get_ports {dvp_din[0]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {dvp_din[0]}]

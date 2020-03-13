@@ -15,7 +15,7 @@ module dvp_controller #(parameter DW = 16)(
   input  wire   [31:0] video_h,
   input  wire   [31:0] video_v,
   input  wire          orientation, // 0 - normal by default, 1 - transposed frame (switch h/v, and indexing)
-  input  wire   [31:0] sample,
+  input  wire   [31:0] sample, // total sample number
   output wire          vsync,
   output wire          hsync,
   output wire          pixel_clk,

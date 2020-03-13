@@ -6,7 +6,7 @@ module dvp_tx_rx_tb();
 reg arm_pclk, aresetn, frame_en;
 reg [11:0] data_pixel;
 reg [31:0] h_pad_left, h_pad_right, sync_width, v_pad_up, v_pad_down, video_h, video_v, sample;
-reg orientation;
+wire orientation = 1; //0: Normal, 1: Column First
 wire dvp_vsync, dvp_hsync, dvp_pclk;
 wire [11:0] dvp_data;
 
@@ -19,12 +19,15 @@ initial begin
 end
 
 initial begin
-  // in px
-  video_h = 320; h_pad_left = 0; h_pad_right = 1728; 
-  // in lines
-  video_v = 240; sync_width = 1; v_pad_up = 7; v_pad_down = 16; //2048px, 14336px, 32768px
+  if(orientation == 0) begin
+    h_pad_left = 0; h_pad_right = 1728; 
+    sync_width = 1; v_pad_up = 7; v_pad_down = 16; //2048px, 14336px, 32768px
+  end else begin
+    h_pad_left = 32; h_pad_right = 1696;
+    sync_width = 1; v_pad_up = 0; v_pad_down = 24;
+  end
+  video_h = 320; video_v = 240; 
   sample = 1;
-  orientation = 0;
 end
 //FIXME: config clock and data clock are the same for now.
 always #(5) arm_pclk = ~arm_pclk; 
@@ -59,7 +62,7 @@ always @(posedge arm_pclk) begin
     sram_ren <= 1;
   end
   if(sram_ren) begin
-    data_pixel = {data_pixel_r, data_pixel_g, data_pixel_b};
+    data_pixel <= {data_pixel_r, data_pixel_g, data_pixel_b}; //FIXME: there is a 1-cycle glitch
     sram_h_count <= sram_h_count + 1;
   end
   if(sram_h_count == video_h - 1) begin
@@ -109,9 +112,10 @@ dvp_rx_top u_dvp_rx_top(
   .reset    (~aresetn),
 	//CAM
 	.dvp_pclk (dvp_pclk), 
-  .dvp_href (dvp_hsync),  //FIXME: use href
+  .dvp_href (dvp_hsync),
   .dvp_vsync(dvp_vsync),
 	.dvp_din  (dvp_data),
+  .dvp_orientation(orientation),
 	//VGA
   .sw_test_mode (sw_test_mode),
 	.hsync    (vga_hsync), 
