@@ -31,7 +31,7 @@ set_property PACKAGE_PIN R3 [get_ports {sw[11]}]
 set_property PACKAGE_PIN W2 [get_ports {sw_test_mode}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {sw_test_mode}]
 #DVP
-create_clock -add -name dvp_pclk_pin -period 10.00 -waveform {0 5} [get_ports dvp_pclk]
+create_clock -add -name dvp_pclk_pin -period 50.00 -waveform {0 25} [get_ports dvp_pclk]
 	set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets dvp_pclk_IBUF]
 
 ##Pmod Header JA

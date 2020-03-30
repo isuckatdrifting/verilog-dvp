@@ -31,7 +31,7 @@ always @(posedge pclk or negedge aresetn) begin
     stream_counter <= 0;
     atom_counter <= 0;
   end else begin
-    if(!orientation) begin //Normal Eocoding
+    if(!orientation) begin //Normal Encoding
       if(vsync) begin //a premise: vsync and href will never be high at the same time
         addr_reg <= 0;
         stream_counter <= 0;
