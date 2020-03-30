@@ -42,7 +42,7 @@ blk_mem_gen_0 frame_buffer(
 );
 // ---------VGA display---------
 
-// register for Basys 2 8-bit RGB DAC 
+// register for Basys 3 12-bit RGB DAC 
 reg [11:0] rgb_reg;
 	
 // video status output from vga_sync to tell when to route out rgb signal to DAC
@@ -56,8 +56,9 @@ vga_sync u_vga_sync (.clk(clk), .reset(reset), .hsync(hsync), .vsync(vsync),
 
 // y * 320 + x, 320 = 256 + 64
 assign raddr = {y_frame[8:0], 8'b0000_0000} + {y_frame[10:0], 6'b00_0000} + x_frame;
-assign enb = (video_on) && (x_frame < 320) && (y_frame < 240) ? 1 : 0; //x <=: for bram delays. FIXME: data mismatch
+assign enb = (video_on) && (x_frame < 320) && (y_frame < 240) ? 1 : 0;
 
+//create a delay signal for enb, latency = 1
 reg valid;
 always @(posedge p_tick or posedge reset) begin
   if(reset) begin
