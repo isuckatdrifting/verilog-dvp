@@ -8,3 +8,6 @@
 **/*.sim
 **/vivado*
 **/*.wdb
+*.srcs/sources_*/ip/*/*
+!*.srcs/sources_*/ip/*/*.xci
+!*.srcs/sources_*/ip/*/*.prj
